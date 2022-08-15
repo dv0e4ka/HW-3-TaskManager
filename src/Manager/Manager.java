@@ -1,12 +1,16 @@
-import java.util.ArrayList;
+package Manager;
+
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.List;
+import TasksConstructor.*;
 
 public class Manager {
     private int nextId = 1;
-    private HashMap<Integer, Task> tasks = new HashMap<>();
-    private HashMap<Integer, Epic> epics = new HashMap<>();
-    private HashMap<Integer, Subtask> subtasks = new HashMap<>();
+    public Map<Integer, Task> tasks = new HashMap<>();
+    public Map<Integer, Epic> epics = new HashMap<>();
+    public Map<Integer, Subtask> subtasks = new HashMap<>();
 
     public void add(Task task) {
         task.setId(nextId++);
@@ -24,15 +28,23 @@ public class Manager {
         epics.put(epic.getId(), epic);
     }
 
-    public ArrayList<Task> getTaskValues() {
+    public List<List> getAllTasksList() {
+        List<List> listAllTask = new ArrayList<List>();
+        listAllTask.add(getEpicValues());
+        listAllTask.add(getSubtaskValues());
+        listAllTask.add(getTaskValues());
+        return listAllTask;
+    }
+
+    public List<Task> getTaskValues() {
         return new ArrayList<>(tasks.values());
     }
 
-    public ArrayList<Subtask> getSubtaskValues() {
+    public List<Subtask> getSubtaskValues() {
         return new ArrayList<>(subtasks.values());
     }
 
-    public ArrayList<Epic> getEpicValues() {
+    public List<Epic> getEpicValues() {
         return new ArrayList<>(epics.values());
     }
 
@@ -88,17 +100,17 @@ public class Manager {
     }
 
     private void updateEpicStatus(Epic epic) {
-        epic.setStatus("NEW");
+        epic.setStatus(TaskStatus.NEW);
         List<Integer> subtasksId = epic.getSubIds();
         for (int id : subtasksId) {
-            if (subtasks.get(id).getStatus().equals("DONE")) {
-                epic.setStatus("Done");
+            if (subtasks.get(id).getStatus().equals(TaskStatus.DONE)) {  
+                epic.setStatus(TaskStatus.DONE);
                 break;
-            } else if (subtasks.get(id).getStatus() .equals("IN_PROGRESS")) {
-                epic.setStatus("IN_PROGRESS");
+            } else if (subtasks.get(id).getStatus() .equals(TaskStatus.IN_PROGRESS)) {
+                epic.setStatus(TaskStatus.IN_PROGRESS);
                 return;
-            } else if (epic.getStatus().equals("DONE") && subtasks.get(id).getStatus().equals("NEW")) {
-                epic.setStatus("IN_PROGRESS");
+            } else if (epic.getStatus().equals(TaskStatus.DONE) && subtasks.get(id).getStatus().equals(TaskStatus.NEW)) {
+                epic.setStatus(TaskStatus.IN_PROGRESS);
                 return;
             }
         }

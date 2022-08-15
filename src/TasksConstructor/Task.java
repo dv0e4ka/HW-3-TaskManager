@@ -1,30 +1,32 @@
+package TasksConstructor;
+
 public class Task {
     protected String title;
 
     protected String description;
 
-    protected int Id;
-    protected String status;
+    protected int id;
+    protected TaskStatus status;
 
-    public Task(String title, String description, String status) {
+    public Task(String title, String description, TaskStatus status) {
         this.title = title;
         this.description = description;
         this.status = status;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public void setId(int idNumber) {
+        id = idNumber;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
-    public String getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(TaskStatus status) {
         this.status = status;
     }
 
@@ -33,7 +35,7 @@ public class Task {
         return "Task{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", Id=" + Id +
+                ", Id=" + id +
                 ", status='" + status + '\'' +
                 '}';
     }

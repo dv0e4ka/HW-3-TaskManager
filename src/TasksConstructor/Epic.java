@@ -1,9 +1,14 @@
+package TasksConstructor;
+
+import TasksConstructor.Task;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Epic extends Task {
-    protected ArrayList<Integer> subtasks;
+    protected List<Integer> subtasks;
 
-    public Epic(String title, String description, String status) {
+    public Epic(String title, String description, TaskStatus status) {
         super(title, description, status);
         subtasks = new ArrayList<>();
     }
@@ -12,15 +17,15 @@ public class Epic extends Task {
         this.subtasks.add(subId);
     }
 
-    public ArrayList<Integer> getSubIds() {
+    public List<Integer> getSubIds() {
         return subtasks;
     }
 
-    public ArrayList<Integer> getSubtasks() {
+    public List<Integer> getSubtasks() {
         return subtasks;
     }
 
-    public void setSubId(ArrayList<Integer> subIds) {
+    public void setSubId(List<Integer> subIds) {
         this.subtasks = subIds;
     }
 }
