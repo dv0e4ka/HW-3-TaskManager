@@ -1,6 +1,4 @@
-package TasksConstructor;
-
-import TasksConstructor.Task;
+package constructor;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,10 @@
-package Manager;
+package manager;
 
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
-import TasksConstructor.*;
+import constructor.*;
 
 public class Manager {
     private int nextId = 1;
@@ -103,7 +103,7 @@ public class Manager {
         epic.setStatus(TaskStatus.NEW);
         List<Integer> subtasksId = epic.getSubIds();
         for (int id : subtasksId) {
-            if (subtasks.get(id).getStatus().equals(TaskStatus.DONE)) {  
+            if (subtasks.get(id).getStatus().equals(TaskStatus.DONE)) {
                 epic.setStatus(TaskStatus.DONE);
                 break;
             } else if (subtasks.get(id).getStatus() .equals(TaskStatus.IN_PROGRESS)) {

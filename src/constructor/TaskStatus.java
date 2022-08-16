@@ -1,4 +1,4 @@
-package TasksConstructor;
+package constructor;
 
 public enum TaskStatus {
     NEW,

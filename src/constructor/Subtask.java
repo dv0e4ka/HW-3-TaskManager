@@ -1,6 +1,4 @@
-package TasksConstructor;
-
-import TasksConstructor.Task;
+package constructor;
 
 public class Subtask extends Task {
     protected int epicId;

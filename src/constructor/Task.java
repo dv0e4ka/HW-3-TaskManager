@@ -1,4 +1,4 @@
-package TasksConstructor;
+package constructor;
 
 public class Task {
     protected String title;

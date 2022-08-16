@@ -1,5 +1,5 @@
-import Manager.Manager;
-import TasksConstructor.*;
+import manager.*;
+import constructor.*;
 public class Main {
 
     public static void main(String[] args) {
