@@ -1,23 +1,21 @@
 package manager.history;
 
-import constructor.Task;
-import manager.history.HistoryManager;
-
 import java.util.*;
+import constructor.Task;
 
-public class InMemoryHistoryManager implements HistoryManager {
-    public List<Task> history = new LinkedList<>();
+public class InMemoryHistoryManager<T extends Task> implements HistoryManager {
+    public List<T> history = new LinkedList<>();
 
     @Override
     public void addHistory(Task task) {
-        history.add(task);
+        history.add((T) task);
         if (history.size() > 10) {
             history.remove(0);
         }
     }
 
     @Override
-    public List<Task> getHistory() {
+    public List<T> getHistory() {
         return history;
     }
 }

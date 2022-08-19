@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface TaskManager {
-    Map<Integer, Task> tasks();
-    Map<Integer, Epic> epics();
-    Map<Integer, Subtask> subtasks();
+    Map<Integer, Task> getTasks();
+    Map<Integer, Epic> getEpics();
+    Map<Integer, Subtask> getSubtasks();
 
     public void add(Task task);
 
@@ -51,5 +51,5 @@ public interface TaskManager {
 
     public List<Task> getHistory();
 
-    InMemoryHistoryManager getHistoryManager();
+    public InMemoryHistoryManager getHistoryManager();
 }

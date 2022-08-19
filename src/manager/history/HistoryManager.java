@@ -4,8 +4,10 @@ import constructor.Task;
 
 import java.util.List;
 
-public interface HistoryManager {
-    List<Task> getHistory();
+public interface HistoryManager<T extends Task> {
+     void addHistory(T task);
 
-    void addHistory(Task task);
+     List<T> getHistory();
+
+
 }
